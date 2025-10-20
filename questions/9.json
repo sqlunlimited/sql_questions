@@ -1,0 +1,19 @@
+{
+  "title": "Parse Pipe-Delimited Raw Data into Structured Table",
+  "difficulty": "Medium",
+  "description": "You are working with raw data stored in a data lake, where each record is a single string with values separated by a pipe delimiter (|). Write an SQL query to transform this raw data into a structured table with columns: EmployeeID, First Name, Last Name, Street, Province, and Country. Handle missing fields gracefully by assigning NULL.",
+  "schema": "CREATE TABLE Raw_Data (Raw_String TEXT);\nINSERT INTO Raw_Data VALUES ('1|John Smith|123 Maple Street, New York, USA');\nINSERT INTO Raw_Data VALUES ('2|Priya|45 MG Road, Bengaluru, India');\nINSERT INTO Raw_Data VALUES ('3|Carlos Martinez|Madrid, Spain');\nINSERT INTO Raw_Data VALUES ('4|Emily|Canada');",
+  "expectedResult": {
+    "columns": ["EmployeeID", "First Name", "Last Name", "Street", "Province", "Country"],
+    "values": [
+      [1, "John", "Smith", "123 Maple Street", "New York", "USA"],
+      [2, "Priya", null, "45 MG Road", "Bengaluru", "India"],
+      [3, "Carlos", "Martinez", null, "Madrid", "Spain"],
+      [4, "Emily", null, null, null, "Canada"]
+    ]
+  },
+  "contributor": {
+    "name": "Sukhpreet Singh",
+    "link": "https://linkedin.com/in/sukhpreet41"
+  }
+}

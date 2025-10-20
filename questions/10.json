@@ -1,0 +1,17 @@
+{
+  "title": "Apply Dynamic Data Masking to Sensitive Columns",
+  "difficulty": "Medium",
+  "description": "As a database admin, ensure sensitive columns (Email and CreditCardNo) are hidden from non-privileged users. Implement column-level masking using Dynamic Data Masking (DDM) so that non-privileged users see masked values (e.g., 'rXXXX@XXXX.com' for emails and 'XXXX-XXXX-XXXX-5432' for credit card numbers), while privileged users see the original data.",
+  "schema": "CREATE TABLE Customers (CustomerID INTEGER, Name TEXT, Email TEXT, CreditCardNo TEXT);\nINSERT INTO Customers VALUES (1, 'Rahul', 'rahul@gmail.com', '1234-5678-9876-5432');\nINSERT INTO Customers VALUES (2, 'Neha', 'neha@yahoo.com', '4321-8765-6543-2198');",
+  "expectedResult": {
+    "columns": ["CustomerID", "Name", "Email", "CreditCardNo"],
+    "values": [
+      [1, "Rahul", "rXXXX@XXXX.com", "XXXX-XXXX-XXXX-5432"],
+      [2, "Neha", "nXXXX@XXXX.com", "XXXX-XXXX-XXXX-2198"]
+    ]
+  },
+  "contributor": {
+    "name": "Sukhpreet Singh",
+    "link": "https://linkedin.com/in/sukhpreet41"
+  }
+}

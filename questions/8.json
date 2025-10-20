@@ -1,0 +1,20 @@
+{
+  "title": "Correct Table Data with Single UPDATE Statement",
+  "difficulty": "Hard",
+  "description": "A junior data engineer inserted incorrect data into a table. As team lead, you must fix the issue using only a single UPDATE statement — no DELETE or reinsert allowed. Transform the input table so that Column1 contains only odd numbers and Column2 contains only even numbers, maintaining their original order of appearance.",
+  "schema": "CREATE TABLE IncorrectData (Column1 INTEGER, Column2 INTEGER);\nINSERT INTO IncorrectData VALUES (1, 6);\nINSERT INTO IncorrectData VALUES (2, 7);\nINSERT INTO IncorrectData VALUES (3, 8);\nINSERT INTO IncorrectData VALUES (4, 9);\nINSERT INTO IncorrectData VALUES (5, 10);",
+  "expectedResult": {
+    "columns": ["Column1", "Column2"],
+    "values": [
+      [1, 2],
+      [3, 4],
+      [5, 6],
+      [7, 8],
+      [9, 10]
+    ]
+  },
+  "contributor": {
+    "name": "Sukhpreet Singh",
+    "link": "https://linkedin.com/in/sukhpreet41"
+  }
+}
