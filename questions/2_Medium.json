@@ -1,0 +1,14 @@
+{
+  "title": "Filter Prime Numbers from Table",
+  "difficulty": "Medium",
+  "description": "Write an SQL query to return only the prime numbers from the 'Numbers' table.",
+  "schema": "CREATE TABLE Numbers (num INTEGER);\nINSERT INTO Numbers VALUES (1);\nINSERT INTO Numbers VALUES (2);\nINSERT INTO Numbers VALUES (3);\nINSERT INTO Numbers VALUES (5);\nINSERT INTO Numbers VALUES (6);\nINSERT INTO Numbers VALUES (7);\nINSERT INTO Numbers VALUES (8);",
+  "expectedResult": {
+    "columns": ["Prime_Numbers"],
+    "values": [[2], [3], [5], [7]]
+  },
+  "contributor": {
+    "name": "Sukhpreet Singh",
+    "link": "https://linkedin.com/in/sukhpreet41"
+  }
+}
