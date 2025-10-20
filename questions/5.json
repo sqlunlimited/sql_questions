@@ -1,0 +1,15 @@
+{
+  "title": "Find Customers Who Bought Products A and B but Not C",
+  "difficulty": "Medium",
+  "description": "Write an SQL query to find customers who purchased both Product A and Product B, but did not purchase Product C.",
+  "schema": "CREATE TABLE Sales (SerialID INTEGER, CustID INTEGER, ProductCode TEXT);\nINSERT INTO Sales VALUES (1, 100, 'A');\nINSERT INTO Sales VALUES (2, 100, 'B');\nINSERT INTO Sales VALUES (3, 100, 'C');\nINSERT INTO Sales VALUES (4, 101, 'A');\nINSERT INTO Sales VALUES (5, 101, 'D');\nINSERT INTO Sales VALUES (6, 102, 'A');\nINSERT INTO Sales VALUES (7, 102, 'B');\nINSERT INTO Sales VALUES (8, 102, 'D');\nINSERT INTO Sales VALUES (9, 103, 'A');\nINSERT INTO Sales VALUES (10, 103, 'B');\nINSERT INTO Sales VALUES (11, 103, 'C');\nINSERT INTO Sales VALUES (12, 104, 'D');",
+  "expectedResult": {
+    "columns": ["CustID"],
+    "values": [[102]]
+  },
+  "hint": "Use GROUP BY with HAVING clause to ensure each customer has at least one record for Product A and Product B, and no record for Product C. Alternatively, use set operations like INTERSECT and EXCEPT.",
+  "contributor": {
+    "name": "Janak Tyagi",
+    "link": "https://linkedin.com/in/janak-tyagi"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "title": "Transform SCD Type 3 to SCD Type 2 with Active Flag",
+  "difficulty": "Hard",
+  "description": "Given a table in SCD Type 3 format (where each player’s scores across multiple attempts are stored in separate columns), transform it into an SCD Type 2 structure. Each attempt should become a separate row, and the latest non-null score for each player should be marked as active (IsActive = 'Y').",
+  "schema": "CREATE TABLE PlayerScores_SCD3 (Player TEXT, \"1 score\" INTEGER, \"2 score\" INTEGER, \"3 score\" INTEGER);\nINSERT INTO PlayerScores_SCD3 VALUES ('John', 80, 65, 70);\nINSERT INTO PlayerScores_SCD3 VALUES ('Jacob', 65, NULL, NULL);\nINSERT INTO PlayerScores_SCD3 VALUES ('Shawn', 92, 75, NULL);",
+  "expectedResult": {
+    "columns": ["Player", "Score", "Attempt", "IsActive"],
+    "values": [
+      ["John", 80, 1, "N"],
+      ["John", 65, 2, "N"],
+      ["John", 70, 3, "Y"],
+      ["Jacob", 65, 1, "Y"],
+      ["Shawn", 92, 1, "N"],
+      ["Shawn", 75, 2, "Y"]
+    ]
+  },
+  "hint": "Use UNION ALL or UNPIVOT to convert columns into rows. Then use window functions like ROW_NUMBER() or RANK() partitioned by Player and ordered by Attempt descending to identify the latest non-null score per player.",
+  "contributor": {
+    "name": "Sukhpreet Singh",
+    "link": "https://linkedin.com/in/sukhpreet41"
+  }
+}
