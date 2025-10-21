@@ -1,0 +1,31 @@
+{
+  "title": "Compare Two Tables for Differences",
+  "difficulty": "Advanced",
+  "description": "Write a SQL query to compare two tables and find rows with differences in any column.",
+  "schema": "CREATE TABLE table1 (id INTEGER, col1 TEXT, col2 INTEGER);\nCREATE TABLE table2 (id INTEGER, col1 TEXT, col2 INTEGER);\nINSERT INTO table1 VALUES (1, 'A', 10);\nINSERT INTO table1 VALUES (2, 'B', 20);\nINSERT INTO table2 VALUES (1, 'A', 10);\nINSERT INTO table2 VALUES (2, 'X', 20);",
+  "expectedResult": {
+    "columns": [
+      "id",
+      "col1",
+      "col2",
+      "id",
+      "col1",
+      "col2"
+    ],
+    "values": [
+      [
+        2,
+        "B",
+        20,
+        2,
+        "X",
+        20
+      ]
+    ]
+  },
+  "hint": "Use FULL OUTER JOIN and IS DISTINCT FROM to detect mismatches.",
+  "contributor": {
+    "name": "Linkedin",
+    "link": "https://linkedin.com/"
+  }
+}

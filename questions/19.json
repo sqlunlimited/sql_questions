@@ -1,0 +1,21 @@
+{
+  "title": "Departments with No Employees",
+  "difficulty": "Medium",
+  "description": "Write a SQL query to get departments with no employees.",
+  "schema": "CREATE TABLE departments (department_id INTEGER, department_name TEXT);\nCREATE TABLE employees (id INTEGER, name TEXT, department_id INTEGER);\nINSERT INTO departments VALUES (1, 'HR');\nINSERT INTO departments VALUES (2, 'Engineering');\nINSERT INTO departments VALUES (3, 'Finance');\nINSERT INTO employees VALUES (1, 'Alice', 1);\nINSERT INTO employees VALUES (2, 'Bob', 2);",
+  "expectedResult": {
+    "columns": [
+      "department_name"
+    ],
+    "values": [
+      [
+        "Finance"
+      ]
+    ]
+  },
+  "hint": "Use LEFT JOIN and check for NULL employee id.",
+  "contributor": {
+    "name": "Linkedin",
+    "link": "https://linkedin.com/"
+  }
+}

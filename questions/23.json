@@ -1,0 +1,45 @@
+{
+  "title": "Full Reporting Chain for Each Employee",
+  "difficulty": "Advanced",
+  "description": "Write a recursive SQL query to find the full reporting chain (hierarchy) for each employee.",
+  "schema": "CREATE TABLE employees (id INTEGER, name TEXT, manager_id INTEGER);\nINSERT INTO employees VALUES (1, 'CEO', NULL);\nINSERT INTO employees VALUES (2, 'Alice', 1);\nINSERT INTO employees VALUES (3, 'Bob', 2);\nINSERT INTO employees VALUES (4, 'Charlie', 1);",
+  "expectedResult": {
+    "columns": [
+      "id",
+      "name",
+      "manager_id",
+      "level"
+    ],
+    "values": [
+      [
+        1,
+        "CEO",
+        null,
+        1
+      ],
+      [
+        2,
+        "Alice",
+        1,
+        2
+      ],
+      [
+        4,
+        "Charlie",
+        1,
+        2
+      ],
+      [
+        3,
+        "Bob",
+        2,
+        3
+      ]
+    ]
+  },
+  "hint": "Use a recursive CTE starting from top-level managers (manager_id IS NULL).",
+  "contributor": {
+    "name": "Linkedin",
+    "link": "https://linkedin.com/"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "title": "Find the Median Salary",
+  "difficulty": "Advanced",
+  "description": "Write a SQL query to find the median salary from the employees table.",
+  "schema": "CREATE TABLE employees (id INTEGER, name TEXT, salary INTEGER);\nINSERT INTO employees VALUES (1, 'Alice', 50000);\nINSERT INTO employees VALUES (2, 'Bob', 60000);\nINSERT INTO employees VALUES (3, 'Charlie', 70000);\nINSERT INTO employees VALUES (4, 'David', 80000);",
+  "expectedResult": {
+    "columns": [
+      "median_salary"
+    ],
+    "values": [
+      [
+        65000.0
+      ]
+    ]
+  },
+  "hint": "Use OFFSET and LIMIT with ordered salaries to compute median.",
+  "contributor": {
+    "name": "Linkedin",
+    "link": "https://linkedin.com/"
+  }
+}

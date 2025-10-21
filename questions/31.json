@@ -1,0 +1,27 @@
+{
+  "title": "Find Overlapping Bookings",
+  "difficulty": "Advanced",
+  "description": "Write a SQL query to identify overlapping date ranges for bookings.",
+  "schema": "CREATE TABLE bookings (booking_id INTEGER, start_date DATE, end_date DATE);\nINSERT INTO bookings VALUES (1, '2025-10-01', '2025-10-05');\nINSERT INTO bookings VALUES (2, '2025-10-04', '2025-10-08');\nINSERT INTO bookings VALUES (3, '2025-10-10', '2025-10-12');",
+  "expectedResult": {
+    "columns": [
+      "booking_id",
+      "booking_id"
+    ],
+    "values": [
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ]
+    ]
+  },
+  "hint": "Join bookings where one starts before the other ends and vice versa.",
+  "contributor": {
+    "name": "Linkedin",
+    "link": "https://linkedin.com/"
+  }
+}

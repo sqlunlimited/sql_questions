@@ -1,0 +1,15 @@
+  {
+    "title": "Employees Earning More Than Their Manager",
+    "difficulty": "Medium",
+    "description": "Write a SQL query to retrieve employees who earn more than their manager.",
+    "schema": "CREATE TABLE employees (id INTEGER, name TEXT, salary INTEGER, manager_id INTEGER);\nINSERT INTO employees VALUES (1, 'Alice', 70000, NULL);\nINSERT INTO employees VALUES (2, 'Bob', 60000, 1);\nINSERT INTO employees VALUES (3, 'Charlie', 80000, 1);\nINSERT INTO employees VALUES (4, 'David', 55000, 2);",
+    "expectedResult": {
+      "columns": ["Employee", "salary", "Manager", "ManagerSalary"],
+      "values": [["Charlie", 80000, "Alice", 70000]]
+    },
+    "hint": "Use a self-join on manager_id and compare salaries.",
+    "contributor": {
+      "name": "Linkedin",
+      "link": "https://linkedin.com/"
+    }
+  }

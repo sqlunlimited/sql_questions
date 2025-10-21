@@ -1,0 +1,35 @@
+{
+  "title": "Salary Difference from Previous Employee",
+  "difficulty": "Medium",
+  "description": "Write a SQL query to calculate the difference between each employee's salary and the previous one (ordered by id).",
+  "schema": "CREATE TABLE employees (name TEXT, salary INTEGER);\nINSERT INTO employees VALUES ('Alice', 70000);\nINSERT INTO employees VALUES ('Bob', 60000);\nINSERT INTO employees VALUES ('Charlie', 80000);",
+  "expectedResult": {
+    "columns": [
+      "name",
+      "salary",
+      "salary_diff"
+    ],
+    "values": [
+      [
+        "Alice",
+        70000,
+        null
+      ],
+      [
+        "Bob",
+        60000,
+        -10000
+      ],
+      [
+        "Charlie",
+        80000,
+        20000
+      ]
+    ]
+  },
+  "hint": "Use LAG(salary) OVER(ORDER BY id).",
+  "contributor": {
+    "name": "Linkedin",
+    "link": "https://linkedin.com/"
+  }
+}
