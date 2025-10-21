@@ -1,14 +1,14 @@
 {
-  "title": "Full Reporting Chain for Each Employee",
+  "title": "Hierarchical Depth of Each Employee",
   "difficulty": "Medium",
-  "description": "Write a SQL query to show each employee along with their level in the company hierarchy (CEO = level 1).",
+  "description": "Write a SQL query to show each employee and their depth in the org chart (CEO = depth 1).",
   "schema": "CREATE TABLE employees (id INTEGER, name TEXT, manager_id INTEGER);\nINSERT INTO employees VALUES (1, 'CEO', NULL);\nINSERT INTO employees VALUES (2, 'Alice', 1);\nINSERT INTO employees VALUES (3, 'Bob', 2);\nINSERT INTO employees VALUES (4, 'Charlie', 1);",
   "expectedResult": {
     "columns": [
       "id",
       "name",
       "manager_id",
-      "level"
+      "depth"
     ],
     "values": [
       [
@@ -37,7 +37,7 @@
       ]
     ]
   },
-  "hint": "Use a recursive CTE starting from employees with no manager.",
+  "hint": "Use a recursive CTE starting from top-level managers.",
   "contributor": {
     "name": "Linkedin",
     "link": "https://linkedin.com/"

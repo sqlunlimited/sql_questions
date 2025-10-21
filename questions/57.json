@@ -1,0 +1,27 @@
+{
+  "title": "Employees with Prime Number Salaries",
+  "difficulty": "Medium",
+  "description": "Write a SQL query to find employees whose salary is a prime number. (Assume salaries are small integers.)",
+  "schema": "CREATE TABLE employees (name TEXT, salary INTEGER);\nINSERT INTO employees VALUES ('Alice', 17);\nINSERT INTO employees VALUES ('Bob', 18);\nINSERT INTO employees VALUES ('Charlie', 19);",
+  "expectedResult": {
+    "columns": [
+      "name",
+      "salary"
+    ],
+    "values": [
+      [
+        "Alice",
+        17
+      ],
+      [
+        "Charlie",
+        19
+      ]
+    ]
+  },
+  "hint": "Generate numbers and exclude composites using modulo logic (simplified for small values).",
+  "contributor": {
+    "name": "Linkedin",
+    "link": "https://linkedin.com/"
+  }
+}

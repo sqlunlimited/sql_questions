@@ -1,7 +1,7 @@
 {
   "title": "Find Duplicate Employee Names",
   "difficulty": "Easy",
-  "description": "Write a SQL query to find duplicate employee names in the employees table.",
+  "description": "Write a SQL query to find names that appear more than once in the employees table.",
   "schema": "CREATE TABLE employees (id INTEGER, name TEXT);\nINSERT INTO employees VALUES (1, 'Alice');\nINSERT INTO employees VALUES (2, 'Bob');\nINSERT INTO employees VALUES (3, 'Alice');\nINSERT INTO employees VALUES (4, 'Charlie');",
   "expectedResult": {
     "columns": [

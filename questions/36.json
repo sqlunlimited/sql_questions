@@ -1,0 +1,23 @@
+{
+  "title": "Departments with Highest Average Salary",
+  "difficulty": "Medium",
+  "description": "Write a SQL query to find the department(s) with the highest average salary.",
+  "schema": "CREATE TABLE employees (name TEXT, department_id INTEGER, salary INTEGER);\nINSERT INTO employees VALUES ('Alice', 10, 80000);\nINSERT INTO employees VALUES ('Bob', 10, 70000);\nINSERT INTO employees VALUES ('Charlie', 20, 60000);\nINSERT INTO employees VALUES ('David', 20, 65000);",
+  "expectedResult": {
+    "columns": [
+      "department_id",
+      "avg_salary"
+    ],
+    "values": [
+      [
+        10,
+        75000.0
+      ]
+    ]
+  },
+  "hint": "Use a CTE or subquery to find the max average, then filter.",
+  "contributor": {
+    "name": "Linkedin",
+    "link": "https://linkedin.com/"
+  }
+}

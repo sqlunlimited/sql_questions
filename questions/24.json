@@ -1,7 +1,7 @@
 {
   "title": "Find Gaps in Employee ID Sequence",
   "difficulty": "Medium",
-  "description": "Write a SQL query to find missing IDs (gaps) in the employee ID sequence.",
+  "description": "Write a SQL query to find the first missing ID in the employee ID sequence.",
   "schema": "CREATE TABLE employees (id INTEGER);\nINSERT INTO employees VALUES (1);\nINSERT INTO employees VALUES (2);\nINSERT INTO employees VALUES (4);\nINSERT INTO employees VALUES (7);",
   "expectedResult": {
     "columns": [
@@ -10,12 +10,6 @@
     "values": [
       [
         3
-      ],
-      [
-        5
-      ],
-      [
-        8
       ]
     ]
   },

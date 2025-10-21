@@ -1,7 +1,7 @@
 {
   "title": "Employees Who Joined in Last 6 Months",
   "difficulty": "Medium",
-  "description": "Write a SQL query to find employees who joined in the last 6 months. Assume current date is 2025-10-21.",
+  "description": "Write a SQL query to find all employees who joined in the last 6 months. Assume today is October 21, 2025.",
   "schema": "CREATE TABLE employees (id INTEGER, name TEXT, join_date DATE);\nINSERT INTO employees VALUES (1, 'Alice', '2025-05-10');\nINSERT INTO employees VALUES (2, 'Bob', '2024-12-01');\nINSERT INTO employees VALUES (3, 'Charlie', '2025-09-15');",
   "expectedResult": {
     "columns": [
@@ -22,7 +22,7 @@
       ]
     ]
   },
-  "hint": "Use CURRENT_DATE - INTERVAL '6 months' in WHERE clause.",
+  "hint": "Use CURRENT_DATE - INTERVAL '6 months' in the WHERE clause.",
   "contributor": {
     "name": "Linkedin",
     "link": "https://linkedin.com/"

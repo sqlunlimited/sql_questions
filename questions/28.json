@@ -1,7 +1,7 @@
 {
   "title": "Customers with No Purchases",
   "difficulty": "Easy",
-  "description": "Write a SQL query to find customers who have not made any purchase.",
+  "description": "Write a SQL query to find customers who have never made a purchase.",
   "schema": "CREATE TABLE customers (customer_id INTEGER, name TEXT);\nCREATE TABLE sales (sale_id INTEGER, customer_id INTEGER);\nINSERT INTO customers VALUES (1, 'Alice');\nINSERT INTO customers VALUES (2, 'Bob');\nINSERT INTO customers VALUES (3, 'Charlie');\nINSERT INTO sales VALUES (101, 1);\nINSERT INTO sales VALUES (102, 3);",
   "expectedResult": {
     "columns": [

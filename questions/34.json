@@ -1,0 +1,25 @@
+{
+  "title": "Employees with Same Salary as Their Manager",
+  "difficulty": "Medium",
+  "description": "Write a SQL query to find employees who earn the exact same salary as their manager.",
+  "schema": "CREATE TABLE employees (id INTEGER, name TEXT, salary INTEGER, manager_id INTEGER);\nINSERT INTO employees VALUES (1, 'Alice', 70000, NULL);\nINSERT INTO employees VALUES (2, 'Bob', 70000, 1);\nINSERT INTO employees VALUES (3, 'Charlie', 60000, 1);\nINSERT INTO employees VALUES (4, 'David', 60000, 3);",
+  "expectedResult": {
+    "columns": [
+      "Employee",
+      "salary",
+      "Manager"
+    ],
+    "values": [
+      [
+        "Bob",
+        70000,
+        "Alice"
+      ]
+    ]
+  },
+  "hint": "Self-join on manager_id and compare e.salary = m.salary.",
+  "contributor": {
+    "name": "Linkedin",
+    "link": "https://linkedin.com/"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "Count Employees by Job Title",
+  "difficulty": "Easy",
+  "description": "Write a SQL query to count how many employees hold each job title.",
+  "schema": "CREATE TABLE employees (name TEXT, job_title TEXT);\nINSERT INTO employees VALUES ('Alice', 'Manager');\nINSERT INTO employees VALUES ('Bob', 'Developer');\nINSERT INTO employees VALUES ('Charlie', 'Developer');\nINSERT INTO employees VALUES ('David', 'Tester');",
+  "expectedResult": {
+    "columns": [
+      "job_title",
+      "num_employees"
+    ],
+    "values": [
+      [
+        "Developer",
+        2
+      ],
+      [
+        "Manager",
+        1
+      ],
+      [
+        "Tester",
+        1
+      ]
+    ]
+  },
+  "hint": "Use GROUP BY job_title and COUNT(*).",
+  "contributor": {
+    "name": "Linkedin",
+    "link": "https://linkedin.com/"
+  }
+}

@@ -1,7 +1,7 @@
 {
   "title": "Find the Second Highest Salary",
   "difficulty": "Medium",
-  "description": "Write a SQL query to find the second highest salary from the Employee table.",
+  "description": "Write a SQL query to find the second highest salary in the company.",
   "schema": "CREATE TABLE employees (id INTEGER, name TEXT, salary INTEGER);\nINSERT INTO employees VALUES (1, 'Alice', 70000);\nINSERT INTO employees VALUES (2, 'Bob', 60000);\nINSERT INTO employees VALUES (3, 'Charlie', 80000);\nINSERT INTO employees VALUES (4, 'David', 55000);",
   "expectedResult": {
     "columns": [

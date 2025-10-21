@@ -1,0 +1,39 @@
+{
+  "title": "Running Total of Sales per Customer",
+  "difficulty": "Medium",
+  "description": "Write a SQL query to show the running total of sales for each customer over time.",
+  "schema": "CREATE TABLE sales (customer_id INTEGER, sale_date DATE, amount INTEGER);\nINSERT INTO sales VALUES (1, '2025-01-01', 100);\nINSERT INTO sales VALUES (1, '2025-01-03', 200);\nINSERT INTO sales VALUES (2, '2025-01-02', 150);",
+  "expectedResult": {
+    "columns": [
+      "customer_id",
+      "sale_date",
+      "amount",
+      "running_total"
+    ],
+    "values": [
+      [
+        1,
+        "2025-01-01",
+        100,
+        100
+      ],
+      [
+        1,
+        "2025-01-03",
+        200,
+        300
+      ],
+      [
+        2,
+        "2025-01-02",
+        150,
+        150
+      ]
+    ]
+  },
+  "hint": "Use SUM(amount) OVER (PARTITION BY customer_id ORDER BY sale_date).",
+  "contributor": {
+    "name": "Linkedin",
+    "link": "https://linkedin.com/"
+  }
+}

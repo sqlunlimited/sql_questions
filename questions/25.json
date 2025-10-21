@@ -1,7 +1,7 @@
 {
   "title": "Cumulative Distribution of Salaries",
   "difficulty": "Medium",
-  "description": "Write a SQL query to calculate the cumulative distribution (CDF) of employee salaries.",
+  "description": "Write a SQL query to compute the cumulative distribution (percentile rank) of each employee’s salary.",
   "schema": "CREATE TABLE employees (name TEXT, salary INTEGER);\nINSERT INTO employees VALUES ('Alice', 50000);\nINSERT INTO employees VALUES ('Bob', 60000);\nINSERT INTO employees VALUES ('Charlie', 70000);",
   "expectedResult": {
     "columns": [

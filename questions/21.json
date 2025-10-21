@@ -37,7 +37,7 @@
       ]
     ]
   },
-  "hint": "Use SUM() with OVER(PARTITION BY department_id ORDER BY id).",
+  "hint": "Use SUM(salary) OVER (PARTITION BY department_id ORDER BY id).",
   "contributor": {
     "name": "Linkedin",
     "link": "https://linkedin.com/"

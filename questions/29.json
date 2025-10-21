@@ -1,7 +1,7 @@
 {
-  "title": "Conditional Aggregation by Gender",
+  "title": "Count Male and Female Employees per Department",
   "difficulty": "Medium",
-  "description": "Write a SQL query to count male and female employees in each department.",
+  "description": "Write a SQL query to count the number of male ('M') and female ('F') employees in each department.",
   "schema": "CREATE TABLE employees (department_id INTEGER, gender TEXT);\nINSERT INTO employees VALUES (10, 'M');\nINSERT INTO employees VALUES (10, 'F');\nINSERT INTO employees VALUES (10, 'M');\nINSERT INTO employees VALUES (20, 'F');",
   "expectedResult": {
     "columns": [
@@ -22,7 +22,7 @@
       ]
     ]
   },
-  "hint": "Use COUNT(CASE WHEN ...) for conditional aggregation.",
+  "hint": "Use COUNT(CASE WHEN gender = 'M' THEN 1 END) for conditional counts.",
   "contributor": {
     "name": "Linkedin",
     "link": "https://linkedin.com/"
