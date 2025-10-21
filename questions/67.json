@@ -1,0 +1,23 @@
+{
+  "title": "Employees with No Salary History Records",
+  "difficulty": "Easy",
+  "description": "Write a SQL query to find employees who have no entries in the salary_history table.",
+  "schema": "CREATE TABLE employees (id INTEGER, name TEXT);\nCREATE TABLE salary_history (employee_id INTEGER);\nINSERT INTO employees VALUES (1, 'Alice');\nINSERT INTO employees VALUES (2, 'Bob');\nINSERT INTO salary_history VALUES (1);",
+  "expectedResult": {
+    "columns": [
+      "id",
+      "name"
+    ],
+    "values": [
+      [
+        2,
+        "Bob"
+      ]
+    ]
+  },
+  "hint": "Use LEFT JOIN and filter where salary_history.employee_id IS NULL.",
+  "contributor": {
+    "name": "Linkedin",
+    "link": "https://linkedin.com/"
+  }
+}

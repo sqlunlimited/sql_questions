@@ -1,0 +1,30 @@
+{
+  "title": "Monthly Sales Growth vs Previous Month",
+  "difficulty": "Medium",
+  "description": "Write a SQL query to calculate the percentage change in total monthly sales compared to the previous month.",
+  "schema": "CREATE TABLE sales (sale_date DATE, amount INTEGER);\nINSERT INTO sales VALUES ('2025-09-01', 1000);\nINSERT INTO sales VALUES ('2025-10-01', 1200);",
+  "expectedResult": {
+    "columns": [
+      "month",
+      "total_sales",
+      "pct_change"
+    ],
+    "values": [
+      [
+        "2025-09-01",
+        1000,
+        null
+      ],
+      [
+        "2025-10-01",
+        1200,
+        20.0
+      ]
+    ]
+  },
+  "hint": "Group by month, then use LAG() to get previous month’s total and compute percentage change.",
+  "contributor": {
+    "name": "Linkedin",
+    "link": "https://linkedin.com/"
+  }
+}

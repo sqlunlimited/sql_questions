@@ -1,0 +1,30 @@
+{
+  "title": "All Ancestors (Managers) of a Given Employee",
+  "difficulty": "Medium",
+  "description": "Write a recursive SQL query to list all managers above employee ID 3 in the hierarchy.",
+  "schema": "CREATE TABLE employees (id INTEGER, name TEXT, manager_id INTEGER);\nINSERT INTO employees VALUES (1, 'CEO', NULL);\nINSERT INTO employees VALUES (2, 'Alice', 1);\nINSERT INTO employees VALUES (3, 'Bob', 2);",
+  "expectedResult": {
+    "columns": [
+      "id",
+      "name",
+      "manager_id"
+    ],
+    "values": [
+      [
+        2,
+        "Alice",
+        1
+      ],
+      [
+        1,
+        "CEO",
+        null
+      ]
+    ]
+  },
+  "hint": "Use a recursive CTE starting from the given employee and traverse upward.",
+  "contributor": {
+    "name": "Linkedin",
+    "link": "https://linkedin.com/"
+  }
+}

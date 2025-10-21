@@ -1,0 +1,23 @@
+{
+  "title": "Department with Most Employees",
+  "difficulty": "Easy",
+  "description": "Write a SQL query to find the department with the highest number of employees.",
+  "schema": "CREATE TABLE employees (name TEXT, department_id INTEGER);\nINSERT INTO employees VALUES ('Alice', 10);\nINSERT INTO employees VALUES ('Bob', 10);\nINSERT INTO employees VALUES ('Charlie', 20);",
+  "expectedResult": {
+    "columns": [
+      "department_id",
+      "employee_count"
+    ],
+    "values": [
+      [
+        10,
+        2
+      ]
+    ]
+  },
+  "hint": "GROUP BY department_id, ORDER BY COUNT(*) DESC, LIMIT 1.",
+  "contributor": {
+    "name": "Linkedin",
+    "link": "https://linkedin.com/"
+  }
+}

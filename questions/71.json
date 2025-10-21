@@ -1,0 +1,30 @@
+{
+  "title": "First and Last Purchase Including Non-Buyers",
+  "difficulty": "Medium",
+  "description": "Write a SQL query to show the first and last purchase date for every customer, including those who never purchased.",
+  "schema": "CREATE TABLE customers (customer_id INTEGER);\nCREATE TABLE sales (customer_id INTEGER, purchase_date DATE);\nINSERT INTO customers VALUES (1);\nINSERT INTO customers VALUES (2);\nINSERT INTO sales VALUES (1, '2025-01-10');\nINSERT INTO sales VALUES (1, '2025-03-15');",
+  "expectedResult": {
+    "columns": [
+      "customer_id",
+      "first_purchase",
+      "last_purchase"
+    ],
+    "values": [
+      [
+        1,
+        "2025-01-10",
+        "2025-03-15"
+      ],
+      [
+        2,
+        null,
+        null
+      ]
+    ]
+  },
+  "hint": "Use LEFT JOIN from customers to sales, then MIN/MAX on purchase_date.",
+  "contributor": {
+    "name": "Linkedin",
+    "link": "https://linkedin.com/"
+  }
+}

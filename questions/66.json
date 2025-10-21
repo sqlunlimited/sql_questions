@@ -1,0 +1,21 @@
+{
+  "title": "Find the Nth Highest Salary (e.g., 3rd)",
+  "difficulty": "Medium",
+  "description": "Write a SQL query to find the 3rd highest distinct salary in the company.",
+  "schema": "CREATE TABLE employees (name TEXT, salary INTEGER);\nINSERT INTO employees VALUES ('Alice', 90000);\nINSERT INTO employees VALUES ('Bob', 80000);\nINSERT INTO employees VALUES ('Charlie', 70000);\nINSERT INTO employees VALUES ('David', 60000);",
+  "expectedResult": {
+    "columns": [
+      "salary"
+    ],
+    "values": [
+      [
+        70000
+      ]
+    ]
+  },
+  "hint": "Use DISTINCT, ORDER BY DESC, and LIMIT 1 OFFSET N-1.",
+  "contributor": {
+    "name": "Linkedin",
+    "link": "https://linkedin.com/"
+  }
+}

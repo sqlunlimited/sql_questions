@@ -1,0 +1,27 @@
+{
+  "title": "Median Salary by Department",
+  "difficulty": "Medium",
+  "description": "Write a SQL query to find the median salary for each department.",
+  "schema": "CREATE TABLE employees (name TEXT, department_id INTEGER, salary INTEGER);\nINSERT INTO employees VALUES ('Alice', 10, 50000);\nINSERT INTO employees VALUES ('Bob', 10, 70000);\nINSERT INTO employees VALUES ('Charlie', 20, 60000);",
+  "expectedResult": {
+    "columns": [
+      "department_id",
+      "median_salary"
+    ],
+    "values": [
+      [
+        10,
+        60000.0
+      ],
+      [
+        20,
+        60000.0
+      ]
+    ]
+  },
+  "hint": "Use PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY salary) OVER (PARTITION BY department_id).",
+  "contributor": {
+    "name": "Linkedin",
+    "link": "https://linkedin.com/"
+  }
+}

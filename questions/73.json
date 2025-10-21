@@ -1,0 +1,30 @@
+{
+  "title": "Longest-Tenured Employee per Department",
+  "difficulty": "Medium",
+  "description": "Write a SQL query to find the employee(s) with the earliest hire date in each department.",
+  "schema": "CREATE TABLE employees (name TEXT, department_id INTEGER, hire_date DATE);\nINSERT INTO employees VALUES ('Alice', 10, '2020-01-01');\nINSERT INTO employees VALUES ('Bob', 10, '2021-01-01');\nINSERT INTO employees VALUES ('Charlie', 20, '2019-01-01');",
+  "expectedResult": {
+    "columns": [
+      "name",
+      "department_id",
+      "hire_date"
+    ],
+    "values": [
+      [
+        "Alice",
+        10,
+        "2020-01-01"
+      ],
+      [
+        "Charlie",
+        20,
+        "2019-01-01"
+      ]
+    ]
+  },
+  "hint": "Use RANK() over hire_date ASC within each department and filter rank = 1.",
+  "contributor": {
+    "name": "Linkedin",
+    "link": "https://linkedin.com/"
+  }
+}

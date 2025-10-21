@@ -1,0 +1,21 @@
+{
+  "title": "Customers Who Bought All Products in a Category",
+  "difficulty": "Medium",
+  "description": "Write a SQL query to find customers who purchased all products in category 10.",
+  "schema": "CREATE TABLE products (product_id INTEGER, category_id INTEGER);\nCREATE TABLE sales (customer_id INTEGER, product_id INTEGER);\nINSERT INTO products VALUES (1, 10);\nINSERT INTO products VALUES (2, 10);\nINSERT INTO sales VALUES (1, 1);\nINSERT INTO sales VALUES (1, 2);\nINSERT INTO sales VALUES (2, 1);",
+  "expectedResult": {
+    "columns": [
+      "customer_id"
+    ],
+    "values": [
+      [
+        1
+      ]
+    ]
+  },
+  "hint": "Group by customer and compare COUNT(DISTINCT product_id) to total products in the category.",
+  "contributor": {
+    "name": "Linkedin",
+    "link": "https://linkedin.com/"
+  }
+}
