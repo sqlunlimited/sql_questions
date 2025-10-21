@@ -1,0 +1,40 @@
+{
+  "title": "Rank Employees by Salary with Ties",
+  "difficulty": "Medium",
+  "description": "Write a SQL query to rank employees by salary in descending order, where tied salaries get the same rank.",
+  "schema": "CREATE TABLE employees (name TEXT, salary INTEGER);\nINSERT INTO employees VALUES ('Alice', 70000);\nINSERT INTO employees VALUES ('Bob', 60000);\nINSERT INTO employees VALUES ('Charlie', 70000);\nINSERT INTO employees VALUES ('David', 50000);",
+  "expectedResult": {
+    "columns": [
+      "name",
+      "salary",
+      "salary_rank"
+    ],
+    "values": [
+      [
+        "Alice",
+        70000,
+        1
+      ],
+      [
+        "Charlie",
+        70000,
+        1
+      ],
+      [
+        "Bob",
+        60000,
+        3
+      ],
+      [
+        "David",
+        50000,
+        4
+      ]
+    ]
+  },
+  "hint": "Use RANK() window function ordered by salary DESC.",
+  "contributor": {
+    "name": "Linkedin",
+    "link": "https://linkedin.com/"
+  }
+}

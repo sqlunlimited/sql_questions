@@ -1,0 +1,33 @@
+{
+  "title": "Sales Difference from Previous Product Sale",
+  "difficulty": "Medium",
+  "description": "For each product, show the difference between current and previous sale amount.",
+  "schema": "CREATE TABLE sales (product_id INTEGER, sale_date DATE, amount INTEGER);\nINSERT INTO sales VALUES (1, '2025-01-01', 100);\nINSERT INTO sales VALUES (1, '2025-01-03', 150);",
+  "expectedResult": {
+    "columns": [
+      "product_id",
+      "sale_date",
+      "amount",
+      "sales_diff"
+    ],
+    "values": [
+      [
+        1,
+        "2025-01-01",
+        100,
+        null
+      ],
+      [
+        1,
+        "2025-01-03",
+        150,
+        50
+      ]
+    ]
+  },
+  "hint": "Use LAG(amount) OVER (PARTITION BY product_id ORDER BY sale_date).",
+  "contributor": {
+    "name": "Linkedin",
+    "link": "https://linkedin.com/"
+  }
+}

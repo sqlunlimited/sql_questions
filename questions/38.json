@@ -1,0 +1,25 @@
+{
+  "title": "Employees with No Department Assigned",
+  "difficulty": "Easy",
+  "description": "Write a SQL query to find employees who do not have a department assigned (department_id is NULL).",
+  "schema": "CREATE TABLE employees (id INTEGER, name TEXT, department_id INTEGER);\nINSERT INTO employees VALUES (1, 'Alice', 10);\nINSERT INTO employees VALUES (2, 'Bob', NULL);\nINSERT INTO employees VALUES (3, 'Charlie', 20);",
+  "expectedResult": {
+    "columns": [
+      "id",
+      "name",
+      "department_id"
+    ],
+    "values": [
+      [
+        2,
+        "Bob",
+        null
+      ]
+    ]
+  },
+  "hint": "Use WHERE department_id IS NULL.",
+  "contributor": {
+    "name": "Linkedin",
+    "link": "https://linkedin.com/"
+  }
+}

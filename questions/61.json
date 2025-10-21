@@ -1,0 +1,30 @@
+{
+  "title": "Average Order Value by Month and Category",
+  "difficulty": "Medium",
+  "description": "Write a SQL query to compute the average order value per month and product category.",
+  "schema": "CREATE TABLE orders (order_date DATE, category_id INTEGER, order_value INTEGER);\nINSERT INTO orders VALUES ('2025-09-10', 1, 200);\nINSERT INTO orders VALUES ('2025-09-15', 1, 300);\nINSERT INTO orders VALUES ('2025-10-01', 2, 400);",
+  "expectedResult": {
+    "columns": [
+      "order_month",
+      "category_id",
+      "avg_order_value"
+    ],
+    "values": [
+      [
+        "2025-09-01",
+        1,
+        250.0
+      ],
+      [
+        "2025-10-01",
+        2,
+        400.0
+      ]
+    ]
+  },
+  "hint": "Use DATE_TRUNC('month', order_date) and GROUP BY month and category.",
+  "contributor": {
+    "name": "Linkedin",
+    "link": "https://linkedin.com/"
+  }
+}

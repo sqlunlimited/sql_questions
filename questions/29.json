@@ -1,0 +1,30 @@
+{
+  "title": "Count Male and Female Employees per Department",
+  "difficulty": "Medium",
+  "description": "Write a SQL query to count the number of male ('M') and female ('F') employees in each department.",
+  "schema": "CREATE TABLE employees (department_id INTEGER, gender TEXT);\nINSERT INTO employees VALUES (10, 'M');\nINSERT INTO employees VALUES (10, 'F');\nINSERT INTO employees VALUES (10, 'M');\nINSERT INTO employees VALUES (20, 'F');",
+  "expectedResult": {
+    "columns": [
+      "department_id",
+      "male_count",
+      "female_count"
+    ],
+    "values": [
+      [
+        10,
+        2,
+        1
+      ],
+      [
+        20,
+        0,
+        1
+      ]
+    ]
+  },
+  "hint": "Use COUNT(CASE WHEN gender = 'M' THEN 1 END) for conditional counts.",
+  "contributor": {
+    "name": "Linkedin",
+    "link": "https://linkedin.com/"
+  }
+}

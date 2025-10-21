@@ -1,0 +1,25 @@
+{
+  "title": "Pairs of Employees in Same Department",
+  "difficulty": "Medium",
+  "description": "Write a SQL query to list all unique pairs of employees who work in the same department.",
+  "schema": "CREATE TABLE employees (id INTEGER, name TEXT, department_id INTEGER);\nINSERT INTO employees VALUES (1, 'Alice', 10);\nINSERT INTO employees VALUES (2, 'Bob', 10);\nINSERT INTO employees VALUES (3, 'Charlie', 20);",
+  "expectedResult": {
+    "columns": [
+      "Employee1",
+      "Employee2",
+      "department_id"
+    ],
+    "values": [
+      [
+        "Alice",
+        "Bob",
+        10
+      ]
+    ]
+  },
+  "hint": "Self-join with e1.id < e2.id to avoid duplicates.",
+  "contributor": {
+    "name": "Linkedin",
+    "link": "https://linkedin.com/"
+  }
+}

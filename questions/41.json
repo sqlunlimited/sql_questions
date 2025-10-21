@@ -1,0 +1,30 @@
+{
+  "title": "Most Recent Purchase per Customer",
+  "difficulty": "Medium",
+  "description": "Write a SQL query to get the most recent purchase for each customer.",
+  "schema": "CREATE TABLE sales (sale_id INTEGER, customer_id INTEGER, purchase_date DATE);\nINSERT INTO sales VALUES (1, 1, '2025-01-10');\nINSERT INTO sales VALUES (2, 1, '2025-03-15');\nINSERT INTO sales VALUES (3, 2, '2025-02-01');",
+  "expectedResult": {
+    "columns": [
+      "sale_id",
+      "customer_id",
+      "purchase_date"
+    ],
+    "values": [
+      [
+        2,
+        1,
+        "2025-03-15"
+      ],
+      [
+        3,
+        2,
+        "2025-02-01"
+      ]
+    ]
+  },
+  "hint": "Use ROW_NUMBER() partitioned by customer_id, ordered by purchase_date DESC.",
+  "contributor": {
+    "name": "Linkedin",
+    "link": "https://linkedin.com/"
+  }
+}

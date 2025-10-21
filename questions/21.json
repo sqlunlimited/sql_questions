@@ -1,0 +1,45 @@
+{
+  "title": "Running Total of Salaries by Department",
+  "difficulty": "Medium",
+  "description": "Write a SQL query to calculate the running total of salaries within each department, ordered by employee id.",
+  "schema": "CREATE TABLE employees (id INTEGER, name TEXT, department_id INTEGER, salary INTEGER);\nINSERT INTO employees VALUES (1, 'Alice', 10, 70000);\nINSERT INTO employees VALUES (2, 'Bob', 10, 60000);\nINSERT INTO employees VALUES (3, 'Charlie', 20, 80000);\nINSERT INTO employees VALUES (4, 'David', 10, 55000);",
+  "expectedResult": {
+    "columns": [
+      "name",
+      "department_id",
+      "salary",
+      "running_total"
+    ],
+    "values": [
+      [
+        "Alice",
+        10,
+        70000,
+        70000
+      ],
+      [
+        "Bob",
+        10,
+        60000,
+        130000
+      ],
+      [
+        "David",
+        10,
+        55000,
+        185000
+      ],
+      [
+        "Charlie",
+        20,
+        80000,
+        80000
+      ]
+    ]
+  },
+  "hint": "Use SUM(salary) OVER (PARTITION BY department_id ORDER BY id).",
+  "contributor": {
+    "name": "Linkedin",
+    "link": "https://linkedin.com/"
+  }
+}

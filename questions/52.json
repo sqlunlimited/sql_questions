@@ -1,0 +1,23 @@
+{
+  "title": "Department with Lowest Average Salary",
+  "difficulty": "Easy",
+  "description": "Write a SQL query to find the department with the lowest average salary.",
+  "schema": "CREATE TABLE employees (name TEXT, department_id INTEGER, salary INTEGER);\nINSERT INTO employees VALUES ('Alice', 10, 50000);\nINSERT INTO employees VALUES ('Bob', 10, 55000);\nINSERT INTO employees VALUES ('Charlie', 20, 80000);",
+  "expectedResult": {
+    "columns": [
+      "department_id",
+      "avg_salary"
+    ],
+    "values": [
+      [
+        10,
+        52500.0
+      ]
+    ]
+  },
+  "hint": "GROUP BY department_id, ORDER BY AVG(salary), LIMIT 1.",
+  "contributor": {
+    "name": "Linkedin",
+    "link": "https://linkedin.com/"
+  }
+}
