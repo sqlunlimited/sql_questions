@@ -1,0 +1,18 @@
+{
+  "title": "Identify Consecutive Failed Transactions per Customer",
+  "difficulty": "Hard",
+  "description": "You are given a table named Transactions that records customer payment attempts. Write a SQL query to find all customers who have experienced 3 or more consecutive failed transactions. Consecutive means failures occurring in sequential TransactionIDs for the same customer (i.e., without any successful transaction in between). Output the CustomerID and the count of consecutive failed transactions for those who meet the condition.",
+  "schema": "CREATE TABLE Transactions (TransactionID INTEGER, CustomerID INTEGER, Status TEXT);\nINSERT INTO Transactions VALUES (1, 1, 'Fail');\nINSERT INTO Transactions VALUES (2, 1, 'Fail');\nINSERT INTO Transactions VALUES (3, 1, 'Fail');\nINSERT INTO Transactions VALUES (4, 1, 'Pass');\nINSERT INTO Transactions VALUES (5, 2, 'Fail');\nINSERT INTO Transactions VALUES (6, 2, 'Fail');\nINSERT INTO Transactions VALUES (7, 2, 'Pass');\nINSERT INTO Transactions VALUES (8, 3, 'Fail');\nINSERT INTO Transactions VALUES (9, 3, 'Fail');\nINSERT INTO Transactions VALUES (10, 3, 'Fail');\nINSERT INTO Transactions VALUES (11, 3, 'Fail');",
+  "expectedResult": {
+    "columns": ["CustomerID", "ConsecutiveFailedCount"],
+    "values": [
+      [1, 3],
+      [3, 4]
+    ]
+  },
+    "hint": "Use UNION ALL or UNPIVOT to convert columns into rows. Then use window functions like ROW_NUMBER() or RANK() partitioned by Player and ordered by Attempt descending to identify the latest non-null score per player.",
+  "contributor": {
+    "name": "Sukhpreet Singh",
+    "link": "https://linkedin.com/in/sukhpreet41"
+  }
+}
