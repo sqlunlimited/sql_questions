@@ -15,7 +15,7 @@
     },
     {
       "name": "Hidden Case - Multiple Students",
-      "visible": false,
+      "visible": true,
       "schema": "CREATE TABLE StudentScores (StudentID INTEGER, ExamDate TEXT, Score INTEGER);\nINSERT INTO StudentScores VALUES (1, '2025-01-01', 45);\nINSERT INTO StudentScores VALUES (1, '2025-01-02', 40);\nINSERT INTO StudentScores VALUES (2, '2025-01-01', 60);\nINSERT INTO StudentScores VALUES (2, '2025-01-02', 45);\nINSERT INTO StudentScores VALUES (2, '2025-01-03', 35);\nINSERT INTO StudentScores VALUES (2, '2025-01-04', 40);\nINSERT INTO StudentScores VALUES (3, '2025-01-01', 30);\nINSERT INTO StudentScores VALUES (3, '2025-01-02', 20);\nINSERT INTO StudentScores VALUES (3, '2025-01-03', 10);",
       "expectedResult": {
         "columns": ["StudentID"],
