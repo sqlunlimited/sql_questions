@@ -3,6 +3,10 @@
   "difficulty": "Medium",
   "description": "Given a table of student exam scores, identify all students who scored less than 50 in 3 or more consecutive exams.",
   "schema": "CREATE TABLE StudentScores (StudentID INTEGER, ExamDate TEXT, Score INTEGER);\nINSERT INTO StudentScores VALUES (1, '2025-01-01', 45);\nINSERT INTO StudentScores VALUES (1, '2025-01-02', 40);\nINSERT INTO StudentScores VALUES (1, '2025-01-03', 30);",
+  "expectedResult": {
+    "columns": ["StudentID"],
+    "values": [[1]]
+  },
   "testCases": [
     {
       "name": "Basic Case",
