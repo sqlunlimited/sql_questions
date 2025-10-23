@@ -27,6 +27,7 @@
       }
     }
   ],
+  "hint": "Use window functions like ROW_NUMBER() and LAG() to track consecutive low scores. Consider partitioning by StudentID and ordering by ExamDate to identify sequences where Score < 50.",
   "contributor": {
     "name": "Your Name",
     "link": "https://www.linkedin.com/in/your-profile"
