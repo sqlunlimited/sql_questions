@@ -1,0 +1,76 @@
+{
+  "title": "Calculate Customer Balance and Uncleared Funds",
+  "difficulty": "Medium",
+  "description": "You are working as a Data Engineer at a bank that maintains all customer transactions in a table named Transactions. Write an SQL query to calculate the Balance and Uncleared Funds for each customer based on the following conditions:\n\nBalance: Include only transactions where Status = 'Pass'. For Credit, add the Amount. For Debit, subtract the Amount.\n\nUncleared Funds: Include only transactions where Status = 'Fail'. Consider only Credit transactions (since failed Debits do not affect uncleared funds). Sum their Amount.",
+  "schema": "CREATE TABLE Transactions (TransactionID INTEGER, CustomerID INTEGER, TransactionType TEXT, Amount INTEGER, Status TEXT);\nINSERT INTO Transactions VALUES (1, 1, 'Credit', 1000, 'Pass');\nINSERT INTO Transactions VALUES (2, 1, 'Debit', 200, 'Pass');\nINSERT INTO Transactions VALUES (3, 1, 'Credit', 500, 'Fail');\nINSERT INTO Transactions VALUES (4, 1, 'Credit', 600, 'Pass');\nINSERT INTO Transactions VALUES (5, 1, 'Debit', 1200, 'Pass');\nINSERT INTO Transactions VALUES (6, 2, 'Debit', 200, 'Fail');\nINSERT INTO Transactions VALUES (7, 2, 'Credit', 100, 'Pass');\nINSERT INTO Transactions VALUES (8, 2, 'Debit', 50, 'Pass');",
+  "expectedResult": {
+    "columns": ["CustomerID", "Balance", "UnclearedFunds"],
+    "values": [
+      [1, 200, 500],
+      [2, 50, 0]
+    ]
+  },
+  "hint": "Use CASE statements to calculate Balance (add Credits, subtract Debits where Status = 'Pass'). For Uncleared Funds, sum Credits where Status = 'Fail'. Group by CustomerID.",
+  "testCases": [
+    {
+      "name": "Basic Test - Two Customers",
+      "visible": true,
+      "schema": "CREATE TABLE Transactions (TransactionID INTEGER, CustomerID INTEGER, TransactionType TEXT, Amount INTEGER, Status TEXT);\nINSERT INTO Transactions VALUES (1, 1, 'Credit', 1000, 'Pass');\nINSERT INTO Transactions VALUES (2, 1, 'Debit', 200, 'Pass');\nINSERT INTO Transactions VALUES (3, 1, 'Credit', 500, 'Fail');\nINSERT INTO Transactions VALUES (4, 1, 'Credit', 600, 'Pass');\nINSERT INTO Transactions VALUES (5, 1, 'Debit', 1200, 'Pass');\nINSERT INTO Transactions VALUES (6, 2, 'Debit', 200, 'Fail');\nINSERT INTO Transactions VALUES (7, 2, 'Credit', 100, 'Pass');\nINSERT INTO Transactions VALUES (8, 2, 'Debit', 50, 'Pass');",
+      "expectedResult": {
+        "columns": ["CustomerID", "Balance", "UnclearedFunds"],
+        "values": [
+          [1, 200, 500],
+          [2, 50, 0]
+        ]
+      }
+    },
+    {
+      "name": "Hidden Test - All Pass Transactions",
+      "visible": false,
+      "schema": "CREATE TABLE Transactions (TransactionID INTEGER, CustomerID INTEGER, TransactionType TEXT, Amount INTEGER, Status TEXT);\nINSERT INTO Transactions VALUES (1, 3, 'Credit', 100, 'Pass');\nINSERT INTO Transactions VALUES (2, 3, 'Debit', 50, 'Pass');\nINSERT INTO Transactions VALUES (3, 3, 'Credit', 200, 'Pass');\nINSERT INTO Transactions VALUES (4, 4, 'Debit', 100, 'Pass');",
+      "expectedResult": {
+        "columns": ["CustomerID", "Balance", "UnclearedFunds"],
+        "values": [
+          [3, 250, 0],
+          [4, -100, 0]
+        ]
+      }
+    },
+    {
+      "name": "Hidden Test - Only Fail Transactions",
+      "visible": false,
+      "schema": "CREATE TABLE Transactions (TransactionID INTEGER, CustomerID INTEGER, TransactionType TEXT, Amount INTEGER, Status TEXT);\nINSERT INTO Transactions VALUES (1, 5, 'Credit', 100, 'Fail');\nINSERT INTO Transactions VALUES (2, 5, 'Debit', 50, 'Fail');\nINSERT INTO Transactions VALUES (3, 5, 'Credit', 200, 'Fail');\nINSERT INTO Transactions VALUES (4, 6, 'Debit', 100, 'Fail');",
+      "expectedResult": {
+        "columns": ["CustomerID", "Balance", "UnclearedFunds"],
+        "values": [
+          [5, 0, 300],
+          [6, 0, 0]
+        ]
+      }
+    },
+    {
+      "name": "Hidden Test - No Transactions",
+      "visible": false,
+      "schema": "CREATE TABLE Transactions (TransactionID INTEGER, CustomerID INTEGER, TransactionType TEXT, Amount INTEGER, Status TEXT);",
+      "expectedResult": {
+        "columns": [],
+        "values": []
+      }
+    },
+    {
+      "name": "Hidden Test - Single Customer Complex",
+      "visible": false,
+      "schema": "CREATE TABLE Transactions (TransactionID INTEGER, CustomerID INTEGER, TransactionType TEXT, Amount INTEGER, Status TEXT);\nINSERT INTO Transactions VALUES (1, 7, 'Credit', 1000, 'Pass');\nINSERT INTO Transactions VALUES (2, 7, 'Debit', 100, 'Pass');\nINSERT INTO Transactions VALUES (3, 7, 'Debit', 500, 'Pass');\nINSERT INTO Transactions VALUES (4, 7, 'Credit', 200, 'Fail');\nINSERT INTO Transactions VALUES (5, 7, 'Credit', 300, 'Fail');",
+      "expectedResult": {
+        "columns": ["CustomerID", "Balance", "UnclearedFunds"],
+        "values": [
+          [7, 400, 500]
+        ]
+      }
+    }
+  ],
+  "contributor": {
+    "name": "Your Name",
+    "link": "https://www.linkedin.com/in/your-profile"
+  }
+}
