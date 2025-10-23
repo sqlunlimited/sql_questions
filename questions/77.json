@@ -1,0 +1,30 @@
+{
+  "title": "Identify Faulty Tractors from IoT Alerts 2",
+  "difficulty": "Hard",
+  "description": "Given IoT sensor data from tractors, identify all tractors that have signaled an alert (IsAlerted = 1) for 3 or more consecutive dates.",
+  "schema": "CREATE TABLE TractorAlerts (TractorID INTEGER, Date TEXT, IsAlerted INTEGER);\nINSERT INTO TractorAlerts VALUES (1, '1/1/2025', 1);\nINSERT INTO TractorAlerts VALUES (1, '2/1/2025', 1);\nINSERT INTO TractorAlerts VALUES (1, '3/1/2025', 1);",
+  "testCases": [
+    {
+      "name": "Basic Case",
+      "visible": true,
+      "schema": "CREATE TABLE TractorAlerts (TractorID INTEGER, Date TEXT, IsAlerted INTEGER);\nINSERT INTO TractorAlerts VALUES (1, '1/1/2025', 1);\nINSERT INTO TractorAlerts VALUES (1, '2/1/2025', 1);\nINSERT INTO TractorAlerts VALUES (1, '3/1/2025', 1);",
+      "expectedResult": {
+        "columns": ["Faulty_TractorID"],
+        "values": [[1]]
+      }
+    },
+    {
+      "name": "Hidden Case - Multiple Tractors",
+      "visible": false,
+      "schema": "CREATE TABLE TractorAlerts (TractorID INTEGER, Date TEXT, IsAlerted INTEGER);\nINSERT INTO TractorAlerts VALUES (1, '1/1/2025', 1);\nINSERT INTO TractorAlerts VALUES (1, '2/1/2025', 1);\nINSERT INTO TractorAlerts VALUES (2, '1/1/2025', 1);\nINSERT INTO TractorAlerts VALUES (2, '2/1/2025', 1);\nINSERT INTO TractorAlerts VALUES (2, '3/1/2025', 1);\nINSERT INTO TractorAlerts VALUES (2, '4/1/2025', 1);",
+      "expectedResult": {
+        "columns": ["Faulty_TractorID"],
+        "values": [[2]]
+      }
+    }
+  ],
+  "contributor": {
+    "name": "Your Name",
+    "link": "https://www.linkedin.com/in/your-profile"
+  }
+}
