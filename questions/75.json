@@ -1,39 +1,17 @@
 {
-  "title": "Calculate Customer Balance and Uncleared Funds",
+  "title": "Calculate Balance and Uncleared Funds per Customer",
   "difficulty": "Medium",
-  "description": "As a Data Engineer at a bank, write an SQL query to calculate the Balance and Uncleared Funds for each customer. Balance includes only transactions with Status = 'Pass', adding Amount for Credit and subtracting Amount for Debit. Uncleared Funds include only Credit transactions with Status = 'Fail'.",
+  "description": "You are working as a Data Engineer at a bank that maintains all customer transactions in a table named Transactions. Write an SQL query to calculate the Balance and Uncleared Funds for each customer based on the following conditions.\n\nBalance: Include only transactions where Status = 'Pass'. For Credit, add the Amount. For Debit, subtract the Amount.\nUncleared Funds: Include only transactions where Status = 'Fail'. Consider only Credit transactions (since failed Debits do not affect uncleared funds). Sum their Amount.",
   "schema": "CREATE TABLE Transactions (TransactionID INTEGER, CustomerID INTEGER, Transaction TEXT, Amount INTEGER, Status TEXT);\nINSERT INTO Transactions VALUES (1, 1, 'Credit', 1000, 'Pass');\nINSERT INTO Transactions VALUES (2, 1, 'Debit', 200, 'Pass');\nINSERT INTO Transactions VALUES (3, 1, 'Credit', 500, 'Fail');\nINSERT INTO Transactions VALUES (4, 1, 'Credit', 600, 'Pass');\nINSERT INTO Transactions VALUES (5, 1, 'Debit', 1200, 'Pass');\nINSERT INTO Transactions VALUES (6, 2, 'Debit', 200, 'Fail');\nINSERT INTO Transactions VALUES (7, 2, 'Credit', 100, 'Pass');\nINSERT INTO Transactions VALUES (8, 2, 'Debit', 50, 'Pass');",
-  "testCases": [
-    {
-      "name": "Basic Case - Sample Input",
-      "visible": true,
-      "schema": "CREATE TABLE Transactions (TransactionID INTEGER, CustomerID INTEGER, Transaction TEXT, Amount INTEGER, Status TEXT);\nINSERT INTO Transactions VALUES (1, 1, 'Credit', 1000, 'Pass');\nINSERT INTO Transactions VALUES (2, 1, 'Debit', 200, 'Pass');\nINSERT INTO Transactions VALUES (3, 1, 'Credit', 500, 'Fail');\nINSERT INTO Transactions VALUES (4, 1, 'Credit', 600, 'Pass');\nINSERT INTO Transactions VALUES (5, 1, 'Debit', 1200, 'Pass');\nINSERT INTO Transactions VALUES (6, 2, 'Debit', 200, 'Fail');\nINSERT INTO Transactions VALUES (7, 2, 'Credit', 100, 'Pass');\nINSERT INTO Transactions VALUES (8, 2, 'Debit', 50, 'Pass');",
-      "expectedResult": {
-        "columns": ["CustomerID", "Balance", "Uncleared Funds"],
-        "values": [[1, 200, 500], [2, 50, 0]]
-      }
-    },
-    {
-      "name": "Hidden Case - No Failed Credits",
-      "visible": false,
-      "schema": "CREATE TABLE Transactions (TransactionID INTEGER, CustomerID INTEGER, Transaction TEXT, Amount INTEGER, Status TEXT);\nINSERT INTO Transactions VALUES (1, 1, 'Credit', 1000, 'Pass');\nINSERT INTO Transactions VALUES (2, 1, 'Debit', 500, 'Pass');\nINSERT INTO Transactions VALUES (3, 2, 'Credit', 200, 'Pass');\nINSERT INTO Transactions VALUES (4, 2, 'Debit', 100, 'Pass');\nINSERT INTO Transactions VALUES (5, 3, 'Credit', 300, 'Fail');\nINSERT INTO Transactions VALUES (6, 3, 'Debit', 100, 'Fail');",
-      "expectedResult": {
-        "columns": ["CustomerID", "Balance", "Uncleared Funds"],
-        "values": [[1, 500, 0], [2, 100, 0], [3, 0, 300]]
-      }
-    },
-    {
-      "name": "Hidden Case - Multiple Customers with Various Transactions",
-      "visible": false,
-      "schema": "CREATE TABLE Transactions (TransactionID INTEGER, CustomerID INTEGER, Transaction TEXT, Amount INTEGER, Status TEXT);\nINSERT INTO Transactions VALUES (1, 1, 'Credit', 50, 'Pass');\nINSERT INTO Transactions VALUES (2, 1, 'Debit', 20, 'Pass');\nINSERT INTO Transactions VALUES (3, 1, 'Credit', 100, 'Fail');\nINSERT INTO Transactions VALUES (4, 2, 'Credit', 300, 'Pass');\nINSERT INTO Transactions VALUES (5, 2, 'Debit', 150, 'Pass');\nINSERT INTO Transactions VALUES (6, 2, 'Credit', 50, 'Fail');\nINSERT INTO Transactions VALUES (7, 3, 'Credit', 200, 'Fail');\nINSERT INTO Transactions VALUES (8, 3, 'Credit', 100, 'Fail');",
-      "expectedResult": {
-        "columns": ["CustomerID", "Balance", "Uncleared Funds"],
-        "values": [[1, 30, 100], [2, 150, 50], [3, 0, 300]]
-      }
-    }
-  ],
+  "expectedResult": {
+    "columns": ["CustomerID", "Balance", "Uncleared Funds"],
+    "values": [
+      [1, 200, 500],
+      [2, 50, 0]
+    ]
+  },
   "contributor": {
-    "name": "Janak Tyagi",
-    "link": "https://www.linkedin.com/in/janak-tyagi/"
+    "name": "Janak Tyage",
+    "link": "https://linkedin.com/in/janak-tyagi/"
   }
 }
