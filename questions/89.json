@@ -1,0 +1,22 @@
+{
+  "title": "3-Month Rolling Average of Total Revenue",
+  "difficulty": "Hard",
+  "description": "Find the 3-month rolling average of total revenue from purchases. Exclude returns (negative purchase values). Output the year-month (YYYY-MM) and the 3-month rolling average of revenue, sorted from earliest to latest month. The rolling average is calculated as the average of the current month's total revenue and the previous two months' total revenues.",
+  "schema": "CREATE TABLE amazon_purchases ( created_at DATETIME, purchase_amt BIGINT, user_id BIGINT);\n\nINSERT INTO amazon_purchases (created_at, purchase_amt, user_id) VALUES ('2023-01-05', 1500, 101), ('2023-01-15', -200, 102), ('2023-02-10', 2000, 103), ('2023-02-20', 1200, 101), ('2023-03-01', 1800, 104), ('2023-03-15', -100, 102), ('2023-04-05', 2200, 105), ('2023-04-10', 1400, 103), ('2023-05-01', 2500, 106), ('2023-05-15', 1700, 107), ('2023-06-05', 1300, 108), ('2023-06-15', 1900, 109);",
+  "expectedResult": {
+    "columns": ["YearMonth", "RollingAvgRevenue"],
+    "values": [
+      ["2023-01", 1500.0],
+      ["2023-02", 2350.0],
+      ["2023-03", 2166.67],
+      ["2023-04", 2866.67],
+      ["2023-05", 3200.0],
+      ["2023-06", 3666.67]
+    ]
+  },
+  "hint": "",
+  "contributor": {
+    "name": "LinkedIn",
+    "link": "https://linkedin.com/"
+  }
+}

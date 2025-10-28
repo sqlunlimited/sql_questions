@@ -1,0 +1,21 @@
+{
+  "title": "Exchange Rate Change in First Half of 2020",
+  "difficulty": "Hard",
+  "description": "Given a table 'sf_exchange_rates' containing exchange rates from various currencies to USD, show how the exchange rate of each currency changed between January 1, 2020 and July 1, 2020. Output the source currency code and the difference (July 1 value minus January 1 value).",
+  "schema": "CREATE TABLE sf_exchange_rates ( date DATETIME, exchange_rate FLOAT, source_currency VARCHAR(10), target_currency VARCHAR(10));\n\nINSERT INTO sf_exchange_rates (date, exchange_rate, source_currency, target_currency) VALUES ('2020-01-01', 1.12, 'EUR', 'USD'), ('2020-01-01', 1.31, 'GBP', 'USD'), ('2020-01-01', 109.56, 'JPY', 'USD'), ('2020-07-01', 1.17, 'EUR', 'USD'), ('2020-07-01', 1.29, 'GBP', 'USD'), ('2020-07-01', 109.66, 'JPY', 'USD'), ('2020-01-01', 0.75, 'AUD', 'USD'), ('2020-07-01', 0.73, 'AUD', 'USD'), ('2020-01-01', 6.98, 'CNY', 'USD'), ('2020-07-01', 7.05, 'CNY', 'USD');",
+  "expectedResult": {
+    "columns": ["source_currency", "rate_change"],
+    "values": [
+      ["AUD", -0.02],
+      ["CNY", 0.07],
+      ["EUR", 0.05],
+      ["GBP", -0.02],
+      ["JPY", 0.1]
+    ]
+  },
+  "hint": "",
+  "contributor": {
+    "name": "LinkedIn",
+    "link": "https://linkedin.com/"
+  }
+}
