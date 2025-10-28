@@ -1,0 +1,24 @@
+{
+  "title": "Famous Percentage of Each User",
+  "difficulty": "Medium",
+  "description": "Given a table 'famous' that records follower relationships (user_id follows follower_id), calculate the famous percentage for each user. Famous Percentage is defined as the number of followers a user has divided by the total number of unique users on the platform.",
+  "schema": "CREATE TABLE famous (user_id INT, follower_id INT);\n\nINSERT INTO famous VALUES\n(1, 2), (1, 3), (2, 4), (5, 1), (5, 3), \n(11, 7), (12, 8), (13, 5), (13, 10), \n(14, 12), (14, 3), (15, 14), (15, 13);",
+  "expectedResult": {
+    "columns": ["user_id", "famous_percentage"],
+    "values": [
+      [1, 0.15384615384615385],
+      [2, 0.07692307692307693],
+      [5, 0.15384615384615385],
+      [11, 0.07692307692307693],
+      [12, 0.07692307692307693],
+      [13, 0.15384615384615385],
+      [14, 0.15384615384615385],
+      [15, 0.15384615384615385]
+    ]
+  },
+  "hint": "First, identify all unique users (from both user_id and follower_id columns). Then, count how many times each user appears as a follower. Finally, divide each follower count by the total number of unique users.",
+  "contributor": {
+    "name": "LinkedIn",
+    "link": "https://linkedin.com/"
+  }
+}
